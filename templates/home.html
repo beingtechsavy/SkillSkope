@@ -21,6 +21,34 @@
 }
 
 
+/* static/styles.css */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 16vh;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #00bfff; /* Futuristic blue color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+    background-color: #007acc; /* Darker blue color on hover */
+    transform: scale(1.05); /* Slight scaling on hover */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+
 
 .container {
     width: 100%;
@@ -82,22 +110,6 @@
     body{background-color: rgb(74, 155, 50);}
     .getstarted{text-align: center;}
 /* styles.css */
-.signup-button {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-}
-
-.signup-button:hover {
-    background-color: #45a049; /* Darken the background color on hover */
-    transform: scale(1.05); /* Slightly scale up the button on hover */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Add a subtle shadow on hover */
-}
 }
     </style>
 </head>
@@ -105,10 +117,11 @@
     <h1 id="dynamic-heading">Dynamic Heading</h1>
     <h2 class="stylish-tagline">Transforming Education, One Collaboration at a Time</h2>
     <img id="banner1" src="http://127.0.0.1:5000/static/pic1.jpg" width="200" height="200"  alt="My Photo" align="left">
-    <h2 align="center">Get Started</h2>
-    <form action="register">
-        <div class="getstarted"><button type="submit" class="signup-button"> Get Started!</button></div>
-    </form>
+    <h2 >Get Started!</h2>
+    <div class="button-container">
+        <a href="http://127.0.0.1:5500/templates/register.html" class="button">Sign up!</a>
+        <a href="http://127.0.0.1:5500/templates/login.html" class="button">Login</a>
+    </div>
     <img id="banner1" src="http://127.0.0.1:5000/static/pic2.jpg" width="200" height="200"  alt="My Photo" align="left">
     <script>
         // JavaScript code goes here
@@ -119,7 +132,7 @@
             window.location.href = "home.html"; // Change "index.html" to your actual home page URL
         });
         // script.js
-
+      
     </script>
 </body>
 </html>

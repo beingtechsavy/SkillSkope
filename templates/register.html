@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>/* styles.css */
+        /* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom right, #ff0055, #f8910c);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.registration-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    text-align: center;
+    max-width: 800px;
+}
+
+h1 {
+    color: #ff0055;
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 18px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] 
+{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.submit-button {
+    background-color: #f8910c;
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #ff7000;
+}
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.mySlides {
+    animation: fadeIn 5s ease-in-out infinite; /* Use animation for fading */
+}
+
+.slide-image {
+    width: 300px; /* Set a fixed width for the images */
+    height: 200px; /* Set a fixed height for the images */
+    display: block;
+    margin: 0 auto; /* Center the images horizontally */
+}
+
+/* Registration container styles remain the same as in the previous example */
+
+/* Keyframes animation for fading in */
+@keyframes fadeIn {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+/* Registration container styles remain the same as in the previous example */
+
+
+/* Registration container styles remain the same as in the previous example */
+
+
+        </style>
+</head>
+<body>
+    <div class="registration-container">
+        <h1>Create an Account</h1>
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <img src="http://127.0.0.1:5000/static/pic3.jpg" alt="Image 1" class="slide-image">
+            </div>
+            <div class="mySlides fade">
+                <img src="http://127.0.0.1:5000/static/pic4.jpg" alt="Image 2" class="slide-image">
+            </div>
+            <div class="mySlides fade">
+                <img src="http://127.0.0.1:5000/static/pic5.jpg" alt="Image 3" class="slide-image">
+            </div>
+        </div>
+        <form action="/submit" method="post">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Choose a Username" required>
+            </div>
+            <div class="form-group">
+                <label for="college">College Name</label>
+                <input type="text" id="college" name="college" placeholder="Enter the College Name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create a Password" required>
+            </div>
+            <button type="submit" class="submit-button">Register</button>
+        </form>
+    </div>
+    <script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+    let i;
+    const slides = document.getElementsByClassName("mySlides");
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
+    }
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 5000); // Change image every 3 seconds
+}
+
+        </script>
+</body>
+</html>
