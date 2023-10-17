@@ -49,7 +49,7 @@
 .button {
     padding: 10px 20px;
     font-size: 18px;
-    background-color: #00bfff; /* Futuristic blue color */
+    background-color: #00bfff; 
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -59,8 +59,8 @@
 }
 
 .button:hover {
-    background-color: #007acc; /* Darker blue color on hover */
-    transform: scale(1.05); /* Slight scaling on hover */
+    background-color: #007acc;
+    transform: scale(1.05); 
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -87,11 +87,11 @@
     box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 .stylish-tagline:hover {
-    transform: scale(1.05); /* Slightly enlarge the tagline on hover */
-    background-color: #3498db; /* Change background color on hover */
+    transform: scale(1.1); /* Enlarge the tagline on hover */
+    background-color: #333; /* Change background color on hover */
     color: #fff; /* Change text color on hover */
-    border-color: #3a1b1b; /* Change border color on hover */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+    border-color: #fff; /* Change border color on hover */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Add a larger shadow on hover */
 }
 #dynamic-heading {
     font-family: "Arial", sans-serif;
@@ -107,16 +107,16 @@
 }
 
 #dynamic-heading:hover {
-    transform: scale(1.1); /* Enlarge the heading on hover */
-    cursor: pointer; /* Change cursor to pointer on hover */
+    transform: scale(1.1); 
+    cursor: pointer; 
 }
     
     h2{
-    color: #333; /* Text color */
-    font-size: 24px; /* Font size */
-    font-weight: bold; /* Font weight (e.g., bold) */
-    text-align: center; /* Text alignment */
-    /* Add more styles as needed */
+    color: #333; 
+    font-size: 24px;
+    font-weight: bold; 
+    text-align: center; 
+    
 }
     #banner1{width: 100%;object-fit: cover;}
     
@@ -124,7 +124,7 @@
     body{background-color: rgb(74, 155, 50);}
     .getstarted{text-align: center;}
 /* styles.css */
-
+}
     </style>
 </head>
 <body >
@@ -147,12 +147,15 @@
     </div>
     
     <script>
+        // JavaScript code goes here
         const dynamicHeading = document.getElementById("dynamic-heading");
 
         dynamicHeading.addEventListener("click", function () {
-            
-            window.location.href = "home.html"; 
+            // Redirect to the home page when clicked
+            window.location.href = "home.html"; // Change "index.html" to your actual home page URL
         });
+        // script.js
+      
     </script>
 </body>
 </html>
