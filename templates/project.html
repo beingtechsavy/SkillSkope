@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-</head>
-<body>
-    Hey there
-</body>
-</html>
+<div class="border-box row" style="margin-bottom: 16px;">
+    <div class="col-9"><div style="color: #141313; margin-bottom: 4px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" ><h4> <b>Name: {{ project['title'] }}</b></h4></div>
+    <div ><b>College:</b> {{ project['College'] }}</div>
+    <div ><b>Skills Needed:</b> {{ project['skills'] }}</div>
+    {% if 'salary' in project %}
+    <div><b>salary:</b> {{project['salary']}} </div>
+    {% endif %}</div>
+    <div class="col-3"><button type="button" class="btn btn-outline-primary">Primary</button></div>
+</div>

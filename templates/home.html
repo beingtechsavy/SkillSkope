@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +14,29 @@
         body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #f06, #9f6), repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(0, 0, 0, 0.1) 25px, rgba(0, 0, 0, 0.1) 50px);
+    background: linear-gradient(135deg, rgb(64, 0, 255), #9f6), repeating-linear-gradient(45deg, transparent, transparent 25px, rgba(0, 0, 0, 0.1) 25px, rgba(0, 0, 0, 0.1) 50px);
     background-size: cover;
     background-attachment: fixed;
     font-family: Arial, sans-serif;
     color: #333;
 }
-
+.border-box {
+    background: linear-gradient(to bottom, #FFFFFF, #ECECEC); /* Gradient background */
+    border: 3px solid #3498db; /* Border color and width */
+    border-radius: 15px; /* Rounded corners */
+    padding: 30px; /* Spacing inside the border */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+     /* Center-align the text */
+    font-size: 24px;
+    padding-left: 50px;
+    color: #272424; /* Text color */
+    font-family: "Helvetica";
+  }
+  .border-box:hover{
+    background: linear-gradient(to top, #ECECEC, #11e61142 ); /* Reverse gradient on hover */
+  transform: scale(1.05); /* Slightly enlarge the box on hover */
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+  }
 
 /* static/styles.css */
 .button-container {
@@ -61,31 +78,28 @@
     text-align: center;
 }
     .stylish-tagline {
-    font-family: "Arial", sans-serif;
-    font-size: 24px;
-    color: #333;
-    text-align: center;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border: 2px solid #555;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+        transition: all 0.3s ease; /* Smooth transitions on all properties */
+    background-color: #f0f0f0; /* Initial background color */
+    border: 2px solid #3498db; /* Initial border color and width */
+    color: #333; /* Initial text color */
+    padding: 15px; /* Initial padding */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 .stylish-tagline:hover {
-    transform: scale(1.1); /* Enlarge the tagline on hover */
-    background-color: #333; /* Change background color on hover */
+    transform: scale(1.05); /* Slightly enlarge the tagline on hover */
+    background-color: #3498db; /* Change background color on hover */
     color: #fff; /* Change text color on hover */
-    border-color: #fff; /* Change border color on hover */
-    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Add a larger shadow on hover */
+    border-color: #3a1b1b; /* Change border color on hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
 }
 #dynamic-heading {
     font-family: "Arial", sans-serif;
     font-size: 36px;
-    color: #333;
+    color: #f4fdff;
     text-align: center;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #1c448e;
     border: 2px solid #555;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -110,29 +124,35 @@
     body{background-color: rgb(74, 155, 50);}
     .getstarted{text-align: center;}
 /* styles.css */
-}
+
     </style>
 </head>
 <body >
-    <h1 id="dynamic-heading">Dynamic Heading</h1>
+    <h1 id="dynamic-heading">SkillSkope</h1>
     <h2 class="stylish-tagline">Transforming Education, One Collaboration at a Time</h2>
     <img id="banner1" src="http://127.0.0.1:5000/static/pic1.jpg" width="200" height="200"  alt="My Photo" align="left">
     <h2 >Get Started!</h2>
     <div class="button-container">
-        <a href="http://127.0.0.1:5500/templates/register.html" class="button">Sign up!</a>
+        <a href="http://127.0.0.1:5000/templates/project.html" class="button" >Sign up!</a>
         <a href="http://127.0.0.1:5500/templates/login.html" class="button">Login</a>
     </div>
     <img id="banner1" src="http://127.0.0.1:5000/static/pic2.jpg" width="200" height="200"  alt="My Photo" align="left">
+
+
+    <div style="padding: 65px; ;"><h2 align="center">Browse Projects</h2></div>
+    <div >
+        {% for project in pro %}
+            {% include 'project.html' %}
+        {% endfor %}
+    </div>
+    
     <script>
-        // JavaScript code goes here
         const dynamicHeading = document.getElementById("dynamic-heading");
 
         dynamicHeading.addEventListener("click", function () {
-            // Redirect to the home page when clicked
-            window.location.href = "home.html"; // Change "index.html" to your actual home page URL
+            
+            window.location.href = "home.html"; 
         });
-        // script.js
-      
     </script>
 </body>
 </html>
