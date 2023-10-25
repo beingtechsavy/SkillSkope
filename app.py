@@ -1,36 +1,42 @@
-from flask import Flask, jsonify, render_template, request, redirect, url_for
-
+import dataclasses
+from flask import Flask, jsonify, render_template, request
+from flask_marshmallow import Marshmallow
+from database import engine
+from sqlalchemy import text
 
 app = Flask(__name__)
+ma = Marshmallow(app)
 
-Project=[{
-    'id':1,
-    'title':'healthcare website',
-    'College':'ITER',
-    'skills':'React js',
-    'salary':1500000
-},
-{
-    'id':2,
-    'title':'Arduino robot',
-    'College':'NIT',
-    'skills':'Machine Learning',
-    'salary':15000
-},
-{
-    'id':3,
-    'title':'fitness mobile app',
-    'College':'NIST',
-    'skills':'Java'
-    
-}]
+
+class ProjectInfo(ma.Schema):
+    class Meta:
+        fields = ('id', 'title', 'college', 'skills', 'salary', 'currency', 'responsibilities')
+
+
+projects_info = ProjectInfo(many=True)
+
+
+def load_projects_from_db():
+    with engine.connect() as conn:
+        result = conn.execute(text("select * from projects"))
+        projects = [row._mapping for row in result.all()]
+        return projects
+
 
 @app.route("/")
 def hello_world():
-    return render_template('home.html',pro=Project)
+    projects = load_projects_from_db()
+    return render_template('home.html', pro=projects)
+
 
 @app.route("/api/projects")
 def list_projects():
-    return jsonify(Project)
+    try:
+        projects = load_projects_from_db()
+        return jsonify(projects_info.dump(projects))
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)
