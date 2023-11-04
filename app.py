@@ -1,4 +1,3 @@
-import dataclasses
 from flask import Flask, jsonify, render_template, request
 from flask_marshmallow import Marshmallow
 from database import engine
@@ -14,7 +13,6 @@ class ProjectInfo(ma.Schema):
 
 
 projects_info = ProjectInfo(many=True)
-
 
 def load_projects_from_db():
     with engine.connect() as conn:

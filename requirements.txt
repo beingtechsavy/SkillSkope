@@ -1,5 +1,4 @@
 Flask
 gunicorn
-flask_marshmallow
 sqlalchemy
 pymysql
