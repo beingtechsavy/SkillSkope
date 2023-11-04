@@ -1,10 +1,9 @@
 from flask import Flask, jsonify, render_template, request
-from flask_marshmallow import Marshmallow
 from database import engine
 from sqlalchemy import text
 
 app = Flask(__name__)
-ma = Marshmallow(app)
+
 
 
 class ProjectInfo(ma.Schema):
