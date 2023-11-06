@@ -1,24 +1,8 @@
 from flask import Flask, jsonify, render_template, request
-from database import engine
+from database import load_projects_from_db
 from sqlalchemy import text
 
 app = Flask(__name__)
-
-
-
-class ProjectInfo(ma.Schema):
-    class Meta:
-        fields = ('id', 'title', 'college', 'skills', 'salary', 'currency', 'responsibilities')
-
-
-projects_info = ProjectInfo(many=True)
-
-def load_projects_from_db():
-    with engine.connect() as conn:
-        result = conn.execute(text("select * from projects"))
-        projects = [row._mapping for row in result.all()]
-        return projects
-
 
 @app.route("/")
 def hello_world():
@@ -30,9 +14,9 @@ def hello_world():
 def list_projects():
     try:
         projects = load_projects_from_db()
-        return jsonify(projects_info.dump(projects))
+        return jsonify(projects)
     except Exception as e:
-        return jsonify({'error': str(e)}), 500
+        return jsonify({'error': str(e)})
 
 
 if __name__ == "__main__":
