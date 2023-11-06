@@ -8,7 +8,7 @@ import os
 connection_string = os.getenv("c_string")
 
 
-engine = create_engine(connection_string, connect_args={"ssl":{"ssl_ca": "/etc/ssl/cert.pem"}})
+engine = create_engine(connection_string, connect_args={"ssl":{"ssl_ca": "/etc/ssl/cert.pem"}}) # type: ignore
 # print(sqlalchemy.__version__)
 def load_projects_from_db():
     # with engine.connect() as conn:
