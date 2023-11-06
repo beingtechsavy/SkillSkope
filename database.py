@@ -1,11 +1,12 @@
 
 # from select import select
 # import sqlalchemy
+import string
 from sqlalchemy import create_engine, text
 import os
 
 
-connection_string = os.getenv("c_string")
+connection_string = os.getenv(str("c_string"))
 
 
 engine = create_engine(connection_string, connect_args={"ssl":{"ssl_ca": "/etc/ssl/cert.pem"}}) # type: ignore
