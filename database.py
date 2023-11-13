@@ -5,7 +5,7 @@ load_dotenv()
 import os
 
 # Ensure the 'g_string' environment variable is set
-connection_string = os.environ['CONNECTION_STRING']
+connection_string = os.environ['DB_NAME']
 
 engine = create_engine(connection_string, connect_args={"ssl_ca": "C:/Users/arpan/cacert.pem"})
 
